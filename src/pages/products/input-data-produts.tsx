@@ -1,7 +1,8 @@
+// AddProduct.tsx
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 import Layout from "@/components/Layout";
 import Navbar from "@/components/navbar";
@@ -15,13 +16,22 @@ export default function AddProduct() {
 
   const navigate = useNavigate();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ProductSchema>({
+    resolver: zodResolver(productSchema),
+  });
+
   const onSubmit = async (data: ProductSchema) => {
     setIsSubmitting(true);
     setError(null);
 
     try {
+      console.log("Submitting data:", data); // Debugging data before API call
       await createProduct(data);
-      navigate("/product"); // Redirect ke /product
+      navigate("/product"); // Redirect ke /product setelah sukses
     } catch (error: any) {
       setError(error.message); // Tampilkan pesan kesalahan jika ada
     } finally {
@@ -115,7 +125,7 @@ export default function AddProduct() {
                 </label>
                 <textarea
                   id="description"
-                  rows="4"
+                  rows={4}
                   placeholder="Masukkan descripsi..."
                   {...register("description")}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

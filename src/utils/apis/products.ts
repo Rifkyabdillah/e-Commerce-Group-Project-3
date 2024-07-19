@@ -24,10 +24,14 @@ export const getDetailProduct = async (id: number) => {
 
 export const createProduct = async (body: ProductSchema) => {
   try {
+    console.log("Creating product with body:", body); // Debugging request body
     const response = await axiosWithConfig.post("/products", body);
+    console.log("Response data:", response.data); // Debugging response data
     return response.data as IResponse<ProductSchema>;
   } catch (error: any) {
+    console.error("Error while creating product:", error); // Debugging API error
     const message = error.response?.data?.message || "Failed to create product";
     throw new Error(message);
   }
 };
+

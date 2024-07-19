@@ -1,18 +1,18 @@
+// utils/axiosWithConfig.ts
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const axiosWithConfig = axios.create();
+
 const token = Cookies.get("token") ?? "";
 
 axiosWithConfig.interceptors.request.use((axiosConfig) => {
   axiosConfig.baseURL = "https://soapshop.site";
 
   if (token) {
-    axiosConfig.headers.Authorization = `Bearer ${token}`;  // Perbaiki format header Authorization
+    axiosConfig.headers.Authorization = `Bearer ${token}`; // Perbaiki penulisan Bearer token
   }
 
-  console.log("Request Headers:", axiosConfig.headers);  // Debugging header
-  console.log("Request Token:", token);  // Debugging token
 
   return axiosConfig;
 });

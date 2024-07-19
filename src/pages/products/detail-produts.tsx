@@ -1,9 +1,9 @@
-import { getDetailProduct, getProducts } from "@/utils/apis/products";
+import { getDetailProduct} from "@/utils/apis/products";
 import { IProducts } from "@/utils/types/products";
 import { useEffect, useState } from "react";
 
 export default function DetailProducts() {
-  const [data, setData] = useState<IProducts>([]);
+  const [data, setData] = useState<IProducts>({});
 
   useEffect(() => {
     fetchData();
@@ -46,34 +46,33 @@ export default function DetailProducts() {
               <div className="mr-4">
                 {/* harga */}
                 <span className="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                <span className="text-gray-600 dark:text-gray-300">$29.99</span>
+                <span className="text-gray-600 dark:text-gray-300">Rp. {data.price}</span>
               </div>
               <div>
                 <span className="font-bold text-gray-700 dark:text-gray-300">Stock:</span>
                 {/* stok */}
-                <span className="text-gray-600 dark:text-gray-300">In Stock</span>
+                <span className="text-gray-600 dark:text-gray-300">{data.stock}</span>
               </div>
             </div>
             <div className="mb-4">
               {/* lokasi */}
               <span className="font-bold text-gray-700 dark:text-gray-300">City:</span>
               <div className="flex items-center mt-2">
-                <h2>Bandung</h2>
+                <h2>{data.city}</h2>
               </div>
             </div>
             <div className="mb-4">
               <span className="font-bold text-gray-700 dark:text-gray-300">Seller:</span>
               <div className="flex items-center mt-2">
                 {/* seller di sini */}
-                ian kece
+                {data.seller}
               </div>
             </div>
             <div>
               {/* descripsi */}
               <span className="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
               <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et
-                venenatis sem blandit. Quisque ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+                {data.description}
               </p>
             </div>
           </div>
