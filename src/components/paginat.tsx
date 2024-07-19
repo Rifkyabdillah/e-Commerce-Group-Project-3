@@ -1,15 +1,8 @@
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-  } from "@/components/ui/pagination"
-  
-  export function PaginationHistory() {
-    return (
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+
+export default function PaginationTable() {
+  return (
+    <div>
       <Pagination>
         <PaginationContent>
           <PaginationItem>
@@ -34,6 +27,6 @@ import {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-    )
-  }
-  
+    </div>
+  );
+}

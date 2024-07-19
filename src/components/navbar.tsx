@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdAccountCircle } from "react-icons/md";
 import { ButtemCommant } from "./command";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isCommandDemoOpen, setCommandDemoOpen] = useState(false);
@@ -13,9 +14,9 @@ export default function Navbar() {
     <header className="w-full sticky top-0 bg-opacity-30 dark:bg-black/90 z-50 ">
       <nav className="bg-[#EEEEEE] dark:bg-black/90 bg-opacity-30 px-4">
         <div className="container mx-auto px-4 flex flex-wrap items-center justify-between">
-          <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <span className="font-Jomhuria text-[40px] font-medium text-[#FF6F00]">Soap Shop</span>
-          </a>
+          </Link>
           <div className="flex md:order-2 items-center gap-2">
             <button
               type="button"
@@ -39,7 +40,7 @@ export default function Navbar() {
               <input
                 type="text"
                 id="search-navbar"
-                className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block lg:w-96 md:w-52 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Search..."
               />
             </div>

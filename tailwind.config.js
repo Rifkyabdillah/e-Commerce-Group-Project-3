@@ -13,7 +13,11 @@ module.exports = {
     },
     fontFamily: {
       Jomhuria: ["Jomhuria"],
-      Roboto : ["Roboto"]
+      Roboto: ["Roboto"],
+      Poppine: ["Poppins"],
+      Robotoflex: ["Roboto Flex"],
+      Inter: ["Inter"],
+      Outfit: ["Outfit"]
     },
     extend: {
       colors: {
